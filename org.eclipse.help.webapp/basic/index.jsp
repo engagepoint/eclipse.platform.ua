@@ -21,7 +21,16 @@
 <jsp:include page="livehelp_js.jsp"/>
 </head>
 
-<frameset rows="<%="0".equals(data.getBannerHeight())?"":data.getBannerHeight()+","%>45,*<%=data.getFooterRowText()%>">
+<%
+    String noscriptMessageHeight = "25";
+    String bannerHeight = data.getBannerHeight();
+    String footerRowText = data.getFooterRowText();
+    String framesetRows = noscriptMessageHeight + "," + bannerHeight + ",45,*" + footerRowText;
+%>
+
+<frameset rows="<%=framesetRows%>">
+    <frame name="NoscriptMessageFrame" title="Noscript Message" src='basic/noscriptmessage.html' marginwidth="0"
+           marginheight="0" scrolling="no" frameborder="no" noresize>
 <%
 	if(!("0".equals(data.getBannerHeight()))){
 %>
