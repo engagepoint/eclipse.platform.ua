@@ -356,12 +356,19 @@ function menu(button, param) {
 	}
 }
 
-function menuKey(e) {
+document.onkeypress = function(e) {
+    var src = parent.frames[1].document.getElementById("menu");
+    if (src) {
+        menuKey(e, src);
+    }
+};
+
+function menuKey(e, src) {
 	var key;
-	if (!e) var e = parent.frames[parent.frames.length - 1].window.event;
+	if (!e) e = parent.frames[parent.frames.length - 1].window.event;
 	if (e.keyCode) key = e.keyCode;
 	else if (e.which) key = e.which;
-    var src = e.srcElement ? e.srcElement : e.target;
+    if (!src) src = e.srcElement ? e.srcElement : e.target;
 
   	if (key == 38) { // Up arrow
   		if (src.id != "menu" && src.previousSibling) {
@@ -472,6 +479,7 @@ if(buttons.length > 0){
 							<a href="javascript:<%=UrlUtil.htmlEncode(buttons[i].getAction())%>('b<%=i%>', '<%=UrlUtil.htmlEncode(buttons[i].getParam())%>');" 
 							   onmouseover="javascript:setWindowStatus('<%=UrlUtil.htmlEncode(buttons[i].getName())%>');return true;" 
 							   onmouseout="window.status='';"
+                               onkeypress="if (event.charCode == 32) this.click(); return true;"
 							   id="b<%=i%>">
 							   <img src="<%=UrlUtil.htmlEncode(buttons[i].getImage())%>" 
 									alt='<%=UrlUtil.htmlEncode(buttons[i].getTooltip())%>' 
