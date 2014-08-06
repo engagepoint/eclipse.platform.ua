@@ -18,7 +18,7 @@
 
 <html lang="<%=ServletResources.getString("locale", request)%>">
 <head>
-<title><%= ServletResources.getString(quickSearchType, request)%></title>
+<title>OnlineHelp - <%= ServletResources.getString(quickSearchType, request)%></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
@@ -128,7 +128,8 @@ function doQuickSearch(){
 </head>
 
 <body dir="<%=direction%>" onload="onloadHandler()" >
-<form onsubmit="doQuickSearch();return false;" action="">
+<noscript>For full functionality of this page it is necessary to enable JavaScript</noscript>
+<form onsubmit="doQuickSearch();return false;" action="" role="form">
     <div id="typeinContainer">
         <label id="searchLabel"
 		        for="searchWord"
@@ -142,17 +143,17 @@ function doQuickSearch(){
    </div>
 
 	<div id="buttonArea">
-		<table style="text-align: <%=isRTL?"left":"right"%>; background:<%=prefs.getToolbarBackground()%>">
+		<table style="text-align: <%=isRTL?"left":"right"%>; background:<%=prefs.getToolbarBackground()%>" summary="Buttons Table">
             <th></th>
 			<tr id="buttonsTable"><td align="<%=isRTL?"left":"right"%>">
-	  			<table cellspacing=0 cellpadding=0 border=0 style="background:transparent;">
+	  			<table cellspacing=0 cellpadding=0 border=0 style="background:transparent;" summary="Navigation Buttons">
                     <th></th>
 					<tr>
 						<td>
-							<button type="submit" id="ok"><%=ServletResources.getString("OK", request)%></button>
+							<input role="button" type="submit" id="ok" value="<%=ServletResources.getString("OK", request)%>" alt="<%=ServletResources.getString("OK", request)%>" />
 						</td>
 						<td>
-						  	<button type="reset" onclick="window.close()" id="cancel"><%=ServletResources.getString("Cancel", request)%></button>
+						  	<input role="button" type="reset" onclick="window.close()" id="cancel" onkeypress="if (event.charCode == 13) window.close();" value="<%=ServletResources.getString("Cancel", request)%>" alt="<%=ServletResources.getString("Cancel", request)%>" />
 						</td>
 					</tr>
 	  			</table>

@@ -20,7 +20,7 @@
 
 <html lang="<%=ServletResources.getString("locale", request)%>">
 <head>
-<title><%=ServletResources.getString("SelectWorkingSetTitle", request)%></title>
+<title>OnlineHelp - <%=ServletResources.getString("SelectWorkingSetTitle", request)%></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
@@ -269,19 +269,20 @@ function sizeList() {
 </head>
 
 <body dir="<%=direction%>" onload="onloadHandler()" onunload="closeWorkingSetDialog()" > <!--onresize = "sizeList()"-->
-<form onsubmit="selectWorkingSet();return false;" action="">
-  	<table id="filterTable" cellspacing=0 cellpadding=0 border=0 style="text-align:left; background:<%=prefs.getToolbarBackground()%>; font:<%=prefs.getToolbarFont()%>;margin-top:5px;width:100%;">
+<noscript>For full functionality of this page it is necessary to enable JavaScript</noscript>
+<form onsubmit="selectWorkingSet();return false;" action="" role="form">
+  	<table id="filterTable" summary="Filter Table" cellspacing=0 cellpadding=0 border=0 style="text-align:left; background:<%=prefs.getToolbarBackground()%>; font:<%=prefs.getToolbarFont()%>;margin-top:5px;width:100%;">
         <th></th>
         <tr><td class="radio">
-			<input id="alldocs" type="radio" name="workingSet" onclick="enableButtons()"><label for="alldocs" accesskey="<%=ServletResources.getAccessKey("selectAll", request)%>"><%=ServletResources.getLabel("selectAll", request)%></label>
+			<input id="alldocs" type="radio" name="workingSet" onclick="enableButtons()" onkeypress="if (event.charCode == 13) enableButtons();"><label for="alldocs"><%=ServletResources.getLabel("selectAll", request)%></label>
 		</td></tr>
 		<tr><td class="radio">
-			<input id="selectws" type="radio" name="workingSet"  onclick="enableButtons()"><label for="selectws" accesskey="<%=ServletResources.getAccessKey("selectWorkingSet", request)%>"><%=ServletResources.getLabel("selectWorkingSet", request)%></label>	
+			<input id="selectws" type="radio" name="workingSet"  onclick="enableButtons()" onkeypress="if (event.charCode == 13) enableButtons();"><label for="selectws"><%=ServletResources.getLabel("selectWorkingSet", request)%></label>
 		</td></tr>
 	</table>
 <div id="workingSetContainer" >
 
-<table id='list'  cellspacing='0' style="width:100%;">
+<table id='list' summary="List of skopes"  cellspacing='0' style="width:100%;">
     <th></th>
 <% 
 String[] wsets = data.getWorkingSets();
@@ -311,30 +312,30 @@ for (int i=0; i<wsets.length; i++)
 </div>
 			
 <div id="buttonArea">
-  			<table cellspacing=0 cellpadding=0 border=0 style="background:transparent;">
+  			<table cellspacing=0 cellpadding=0 border=0 style="background:transparent;" summary="Edit buttons">
                 <th></th>
 				<tr>
 					<td>
-						<button type="button" onclick="newWorkingSet()" id="new" accesskey="<%=ServletResources.getAccessKey("NewWorkingSetButton", request)%>"><%=ServletResources.getLabel("NewWorkingSetButton", request)%></button>
+						<input role="button" type="button" onclick="newWorkingSet()" onkeypress="if (event.charCode == 13) newWorkingSet();" id="new" accesskey="<%=ServletResources.getAccessKey("NewWorkingSetButton", request)%>" value="<%=ServletResources.getLabel("NewWorkingSetButton", request)%>" alt="<%=ServletResources.getLabel("NewWorkingSetButton", request)%>" />
 					</td>
 					<td>
-					  	<button type="button"  onclick="editWorkingSet()" id="edit" disabled='<%=data.getWorkingSet() == null ?"disabled":"false"%>' accesskey="<%=ServletResources.getAccessKey("EditWorkingSetButton", request)%>"><%=ServletResources.getLabel("EditWorkingSetButton", request)%></button>
+					  	<input role="button" type="button"  onclick="editWorkingSet()" onkeypress="if (event.charCode == 13) editWorkingSet();" id="edit" disabled='<%=data.getWorkingSet() == null ?"disabled":"false"%>' value="<%=ServletResources.getLabel("EditWorkingSetButton", request)%>" alt="<%=ServletResources.getLabel("EditWorkingSetButton", request)%>" />
 					</td>
 					<td>
-					  	<button type="button"  onclick="removeWorkingSet()" id="remove" disabled='<%=data.getWorkingSet() == null ?"disabled":"false"%>' accesskey="<%=ServletResources.getAccessKey("RemoveWorkingSetButton", request)%>"><%=ServletResources.getLabel("RemoveWorkingSetButton", request)%></button>
+					  	<input role="button" type="button"  onclick="removeWorkingSet()" onkeypress="if (event.charCode == 13) removeWorkingSet();" id="remove" disabled='<%=data.getWorkingSet() == null ?"disabled":"false"%>' accesskey="<%=ServletResources.getAccessKey("RemoveWorkingSetButton", request)%>" value="<%=ServletResources.getLabel("RemoveWorkingSetButton", request)%>" alt="<%=ServletResources.getLabel("RemoveWorkingSetButton", request)%>" />
 					</td>
 				</tr>
   			</table>
-	<table style="background:<%=prefs.getToolbarBackground()%>; text-align: <%=isRTL?"left":"right"%>">
+	<table style="background:<%=prefs.getToolbarBackground()%>; text-align: <%=isRTL?"left":"right"%>" summary="ButtonsTable">
 		<tr id="buttonsTable"><td align="<%=isRTL?"left":"right"%>">
-  			<table cellspacing=0 cellpadding=0 border=0 style="background:transparent;">
+  			<table cellspacing=0 cellpadding=0 border=0 style="background:transparent;" summary="Navigation buttons">
                 <th></th>
 				<tr>
 					<td>
-						<button type="submit" id="ok"><%=ServletResources.getString("OK", request)%></button>
+						<input role="button" type="submit" id="ok" value="<%=ServletResources.getString("OK", request)%>" alt="<%=ServletResources.getString("OK", request)%>" />
 					</td>
 					<td>
-					  	<button type="reset" onclick="window.close()" id="cancel"><%=ServletResources.getString("Cancel", request)%></button>
+					  	<input role="button" type="reset" onclick="window.close()" onkeypress="if (event.charCode == 13) window.close();" id="cancel" value="<%=ServletResources.getString("Cancel", request)%>" alt="<%=ServletResources.getString("Cancel", request)%>" />
 					</td>
 				</tr>
   			</table>
