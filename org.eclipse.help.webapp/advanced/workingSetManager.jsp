@@ -269,8 +269,8 @@ function sizeList() {
 </head>
 
 <body dir="<%=direction%>" onload="onloadHandler()" onunload="closeWorkingSetDialog()" > <!--onresize = "sizeList()"-->
-<noscript>For full functionality of this page it is necessary to enable JavaScript</noscript>
-<form onsubmit="selectWorkingSet();return false;" action="" role="form">
+<noscript> <p>  For full functionality of this page it is necessary to enable JavaScript </p> </noscript>
+<form onsubmit="selectWorkingSet();return false;" action="" >
   	<table id="filterTable" summary="Filter Table" cellspacing=0 cellpadding=0 border=0 style="text-align:left; background:<%=prefs.getToolbarBackground()%>; font:<%=prefs.getToolbarFont()%>;margin-top:5px;width:100%;">
         <th></th>
         <tr><td class="radio">
@@ -316,13 +316,13 @@ for (int i=0; i<wsets.length; i++)
                 <th></th>
 				<tr>
 					<td>
-						<input role="button" type="button" onclick="newWorkingSet()" onkeypress="if (event.charCode == 13) newWorkingSet();" id="new" accesskey="<%=ServletResources.getAccessKey("NewWorkingSetButton", request)%>" value="<%=ServletResources.getLabel("NewWorkingSetButton", request)%>" alt="<%=ServletResources.getLabel("NewWorkingSetButton", request)%>" />
+						<input  type="button" onclick="newWorkingSet()" onkeypress="if (event.charCode == 13) newWorkingSet();" id="new" accesskey="<%=ServletResources.getAccessKey("NewWorkingSetButton", request)%>" value="<%=ServletResources.getLabel("NewWorkingSetButton", request)%>" alt="<%=ServletResources.getLabel("NewWorkingSetButton", request)%>" />
 					</td>
 					<td>
-					  	<input role="button" type="button"  onclick="editWorkingSet()" onkeypress="if (event.charCode == 13) editWorkingSet();" id="edit" disabled='<%=data.getWorkingSet() == null ?"disabled":"false"%>' value="<%=ServletResources.getLabel("EditWorkingSetButton", request)%>" alt="<%=ServletResources.getLabel("EditWorkingSetButton", request)%>" />
+					  	<input type="button"  onclick="editWorkingSet()" onkeypress="if (event.charCode == 13) editWorkingSet();" id="edit" disabled='<%=data.getWorkingSet() == null ?"disabled":"false"%>' value="<%=ServletResources.getLabel("EditWorkingSetButton", request)%>" alt="<%=ServletResources.getLabel("EditWorkingSetButton", request)%>" />
 					</td>
 					<td>
-					  	<input role="button" type="button"  onclick="removeWorkingSet()" onkeypress="if (event.charCode == 13) removeWorkingSet();" id="remove" disabled='<%=data.getWorkingSet() == null ?"disabled":"false"%>' accesskey="<%=ServletResources.getAccessKey("RemoveWorkingSetButton", request)%>" value="<%=ServletResources.getLabel("RemoveWorkingSetButton", request)%>" alt="<%=ServletResources.getLabel("RemoveWorkingSetButton", request)%>" />
+					  	<input  type="button"  onclick="removeWorkingSet()" onkeypress="if (event.charCode == 13) removeWorkingSet();" id="remove" disabled='<%=data.getWorkingSet() == null ?"disabled":"false"%>' accesskey="<%=ServletResources.getAccessKey("RemoveWorkingSetButton", request)%>" value="<%=ServletResources.getLabel("RemoveWorkingSetButton", request)%>" alt="<%=ServletResources.getLabel("RemoveWorkingSetButton", request)%>" />
 					</td>
 				</tr>
   			</table>
@@ -332,10 +332,10 @@ for (int i=0; i<wsets.length; i++)
                 <th></th>
 				<tr>
 					<td>
-						<input role="button" type="submit" id="ok" value="<%=ServletResources.getString("OK", request)%>" alt="<%=ServletResources.getString("OK", request)%>" />
+						<input  type="submit" id="ok" value="<%=ServletResources.getString("OK", request)%>" alt="<%=ServletResources.getString("OK", request)%>" />
 					</td>
 					<td>
-					  	<input role="button" type="reset" onclick="window.close()" onkeypress="if (event.charCode == 13) window.close();" id="cancel" value="<%=ServletResources.getString("Cancel", request)%>" alt="<%=ServletResources.getString("Cancel", request)%>" />
+					  	<input  type="reset" onclick="window.close()" onkeypress="if (event.charCode == 13) window.close();" id="cancel" value="<%=ServletResources.getString("Cancel", request)%>" alt="<%=ServletResources.getString("Cancel", request)%>" />
 					</td>
 				</tr>
   			</table>
