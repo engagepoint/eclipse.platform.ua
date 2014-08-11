@@ -285,7 +285,6 @@ function onloadHandler(e)
 </head>
 
 <body dir="<%=direction%>" onload="onloadHandler()"  onunload="closeAdvanced()">
-<a href="#maincontent">Skip to main content</a>
 <form  name="searchForm"   onsubmit="doSearch()">
 	<div role="search">
 		<table id="searchTable" align="<%=isRTL?"right":"left"%>" valign="middle" cellspacing="0" cellpadding="0" border="0" role="presentation">
