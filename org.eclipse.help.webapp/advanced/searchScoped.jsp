@@ -91,11 +91,11 @@ A {
 <% 
     } else {
 %>
-    background:ThreeDShadow;
+    background:ThreeDHighlight;
 <%
     }
 %>
-	color:Window;
+	color:WindowText;
 	font-weight:bold;
 	border:1px solid ThreeDShadow;
 	margin-left:1px;
@@ -104,7 +104,7 @@ A {
 
 #scopeLabel {
 	text-decoration:underline; 
-	color:#0066FF; 
+	color: #1c0aff;
 	cursor:pointer;
 	padding-left:15px;   /* This should be the same for both RTL and LTR. */
 }
