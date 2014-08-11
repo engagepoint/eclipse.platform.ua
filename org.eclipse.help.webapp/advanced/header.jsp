@@ -22,7 +22,7 @@ if (new RequestData(application,request, response).isMozilla()) {
 %><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
 }
-%><!------------------------------------------------------------------------------
+%><!--
  ! Copyright (c) 2000, 2007 IBM Corporation and others.
  ! All rights reserved. This program and the accompanying materials 
  ! are made available under the terms of the Eclipse Public License v1.0
@@ -31,4 +31,4 @@ if (new RequestData(application,request, response).isMozilla()) {
  ! 
  ! Contributors:
  !     IBM Corporation - initial API and implementation
- ------------------------------------------------------------------------------->
+-->

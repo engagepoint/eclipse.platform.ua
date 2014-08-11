@@ -128,8 +128,8 @@ function doQuickSearch(){
 </head>
 
 <body dir="<%=direction%>" onload="onloadHandler()" >
-<noscript>For full functionality of this page it is necessary to enable JavaScript</noscript>
-<form onsubmit="doQuickSearch();return false;" action="" role="form">
+<noscript> <p>  For full functionality of this page it is necessary to enable JavaScript </p> </noscript>
+<form onsubmit="doQuickSearch();return false;" action="" >
     <div id="typeinContainer">
         <label id="searchLabel"
 		        for="searchWord"
@@ -150,10 +150,10 @@ function doQuickSearch(){
                     <th></th>
 					<tr>
 						<td>
-							<input role="button" type="submit" id="ok" value="<%=ServletResources.getString("OK", request)%>" alt="<%=ServletResources.getString("OK", request)%>" />
+							<input  type="submit" id="ok" value="<%=ServletResources.getString("OK", request)%>" alt="<%=ServletResources.getString("OK", request)%>" />
 						</td>
 						<td>
-						  	<input role="button" type="reset" onclick="window.close()" id="cancel" onkeypress="if (event.charCode == 13) window.close();" value="<%=ServletResources.getString("Cancel", request)%>" alt="<%=ServletResources.getString("Cancel", request)%>" />
+						  	<input  type="reset" onclick="window.close()" id="cancel" onkeypress="if (event.charCode == 13) window.close();" value="<%=ServletResources.getString("Cancel", request)%>" alt="<%=ServletResources.getString("Cancel", request)%>" />
 						</td>
 					</tr>
 	  			</table>
