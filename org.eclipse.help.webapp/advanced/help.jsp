@@ -22,6 +22,15 @@
 <title><%=ServletResources.getString("Help", request)%></title>
 
 <script language="JavaScript">
+
+window.setInterval(function() {
+    if (confirm('Dude, are you there?')) {
+        // Yes  I'm here!
+    } else {
+        // No, I go away!
+    }
+}, 50000);
+
 <%-- map of maximize listener functions indexed by name --%>
 var maximizeListeners=new Object();
 function registerMaximizeListener(name, listener){
