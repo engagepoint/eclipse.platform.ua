@@ -23,13 +23,31 @@
 
 <script language="JavaScript">
 
-window.setInterval(function() {
-    if (confirm('Dude, are you there?')) {
-        // Yes  I'm here!
-    } else {
-        // No, I go away!
-    }
-}, 50000);
+//window.setInterval(function() {
+//    if (confirm('Dude, are you there?')) {
+//        // Yes  I'm here!
+//    } else {
+//        // No, I go away!
+//    }
+//}, 50000);
+
+var t;
+window.onload = resetTimer;
+document.onmousemove = resetTimer;
+document.onkeypress = resetTimer;
+parent.window.onload = resetTimer;
+parent.document.onmousemove = resetTimer;
+parent.document.onkeypress = resetTimer;
+
+function logout() {
+    alert("You have been idle for more than 1 minute")
+    //location.href = 'logout.php'
+}
+
+function resetTimer() {
+    clearTimeout(t);
+    t = setTimeout(logout, 50000)
+}
 
 <%-- map of maximize listener functions indexed by name --%>
 var maximizeListeners=new Object();
