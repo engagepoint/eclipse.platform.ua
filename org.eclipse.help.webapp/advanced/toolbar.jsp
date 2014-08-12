@@ -356,7 +356,7 @@ function menu(button, param) {
 	}
 }
 
-document.onkeypress = function(e) {
+document.onkeydown = function(e) {
     var src = parent.frames[1].document.getElementById("menu");
     if (src) {
         menuKey(e, src);
