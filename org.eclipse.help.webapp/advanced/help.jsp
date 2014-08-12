@@ -40,13 +40,13 @@ parent.document.onmousemove = resetTimer;
 parent.document.onkeypress = resetTimer;
 
 function logout() {
-    alert("You have been idle for more than 1 minute")
+    alert("You have been idle for more than 10 minutes")
     //location.href = 'logout.php'
 }
 
 function resetTimer() {
     clearTimeout(t);
-    t = setTimeout(logout, 50000)
+    t = setTimeout(logout, 10 * 60000)
 }
 
 <%-- map of maximize listener functions indexed by name --%>
