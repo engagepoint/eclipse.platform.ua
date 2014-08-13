@@ -16,9 +16,13 @@
 <html lang="<%=ServletResources.getString("locale", request)%>">
 
 <head>
+
+<%if(data.isAdvancedUI()){%>
 <script type="text/javascript">
-    window.location = "../index.jsp"
+    window.location = "index.jsp"
 </script>
+<%}%>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><%=data.getWindowTitle()%></title>
 <jsp:include page="livehelp_js.jsp"/>
