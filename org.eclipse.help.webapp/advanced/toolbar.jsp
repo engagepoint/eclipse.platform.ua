@@ -349,7 +349,8 @@ function menu(button, param) {
 		}
 
 		doc.body.appendChild(menu);
-		menu.focus();
+//		menu.focus();
+        menu.firstChild.focus();
 	}
 
 	if (button && document.getElementById(button)) {
@@ -405,6 +406,7 @@ function closeMenu() {
 
     // return focus to element which render menu
     document.getElementById(menuElementId).focus();
+    menuElementId = null;
 }
 
 function itemEnter(e) {
@@ -428,6 +430,17 @@ function menuExit(e) {
          target = target.parentNode;
     if (target == this) return;
     closeMenu();
+}
+
+function onkeypressMenuElement(event, menuElement) {
+    if (event.charCode == 32) {
+        if (menuElementId) {
+            menuExit(event)
+        } else {
+            menuElement.click();
+        }
+    }
+    return true;
 }
 
 <%
@@ -485,7 +498,7 @@ if(buttons.length > 0){
 							<a href="javascript:<%=UrlUtil.htmlEncode(buttons[i].getAction())%>('b<%=i%>', '<%=UrlUtil.htmlEncode(buttons[i].getParam())%>');" 
 							   onmouseover="javascript:setWindowStatus('<%=UrlUtil.htmlEncode(buttons[i].getName())%>');return true;" 
 							   onmouseout="window.status='';"
-                               onkeypress="if (event.charCode == 32) this.click(); return true;"
+                               onkeypress="onkeypressMenuElement(event, this)"
 							   id="b<%=i%>">
 							   <img src="<%=UrlUtil.htmlEncode(buttons[i].getImage())%>" 
 									alt='<%=UrlUtil.htmlEncode(buttons[i].getTooltip())%>' 
