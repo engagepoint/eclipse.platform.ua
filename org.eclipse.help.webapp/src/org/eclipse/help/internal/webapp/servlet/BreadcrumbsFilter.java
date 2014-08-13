@@ -109,7 +109,9 @@ public class BreadcrumbsFilter implements IFilter {
 		StringBuffer pathBuf = new StringBuffer();
 		ITopic topic = HelpPlugin.getTocManager().getTocs(locale)[path[0]].getTopic(null);
 		pathBuf.append(path[0]);
-		
+
+        buf.append("<noscript><p style=\"background-color:yellow;\">For full functionality of this page it is necessary to enable JavaScript</p></noscript>");
+
 		boolean isMirrored = org.eclipse.help.internal.util.ProductPreferences.isRTL();
 		if(isMirrored)
 			buf.append("\u202B"); //$NON-NLS-1$ //append RLE marker at the beginning 
