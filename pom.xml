@@ -48,4 +48,7 @@
     <!--<module>org.eclipse.ui.intro</module>-->
     <!--<module>org.eclipse.ui.intro.universal</module>-->
   </modules>
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+    </build>
 </project>

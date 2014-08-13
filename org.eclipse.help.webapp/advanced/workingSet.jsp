@@ -165,8 +165,8 @@ input[type="checkbox"] {
 }
 %>
 </style>
-<script language="JavaScript" src="resize.js"></script>
-<script language="JavaScript">
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript">
 
 // Preload images
 var minus = new Image();
@@ -486,9 +486,9 @@ function enableOK() {
 
 </head>
 
-<body dir="<%=direction%>" onload="onloadHandler()"  onresize = "sizeContainer()">
-<form onsubmit="doSubmit();return false;">
-	<table id="wsTable" width="100%" cellspacing=0 cellpading=0 border=0 align=center >
+<body dir="<%=direction%>" onload="onloadHandler()" >
+<form onsubmit="doSubmit();return false;"  action="">
+	<table id="wsTable" width="100%" cellspacing=0  border=0 style="text-align: left; padding: 0" >
 		<tr><td style="padding:5px 10px 0px 10px;"><label for="workingSet" accesskey="<%=ServletResources.getAccessKey("WorkingSetName", request)%>"><%=ServletResources.getLabel("WorkingSetName", request)%></label>
 		</td></tr>
 		<tr><td style="padding:0px 10px;"><input type="text" id="workingSet" name="workingSet" 
@@ -496,7 +496,7 @@ function enableOK() {
         </td></tr>
     </table>
     
-    <table width="100%" cellspacing=0 cellpading=0 border=0 align=center style="table-layout:fixed;">
+    <table width="100%" cellspacing=0 border=0  style="table-layout:fixed; text-align: left; padding: 0">
         <tr>
             <td>
                <div id="selectBook" style="padding-top:5px; margin-<%=isRTL?"right":"left"%>:10px;"><%=ServletResources.getString("WorkingSetContent", request)%>:</div>
@@ -522,11 +522,11 @@ function enableOK() {
                %>
 				    <div class="book" id='<%="id"+i%>' >
 					   <img id='<%="img"+i%>' alt="<%=ServletResources.getString("bookClosed", request)%>" title="<%=ServletResources.getString("bookClosed", request)%>" src="<%=prefs.getImagesDirectory()%>/plus.gif" onclick="collapseOrExpand('<%=i%>')">
-					   <input 	class='<%=className%>' 
-							    type="checkbox" 
-							    id='<%=UrlUtil.htmlEncode(data.getTocHref(i))%>' 
-							    name='<%=UrlUtil.htmlEncode(data.getTocHref(i))%>' 
-							    alt="<%=UrlUtil.htmlEncode(label)%>" <%=checked%> 
+					   <input 	class='<%=className%>'
+							    type="checkbox"
+							    id='<%=UrlUtil.htmlEncode(data.getTocHref(i))%>'
+							    name='<%=UrlUtil.htmlEncode(data.getTocHref(i))%>'
+							    alt="<%=UrlUtil.htmlEncode(label)%>" <%=checked%>
 						  	    onkeydown="keyDownHandler(<%=i%>, event.keyCode, this)"
 							    onclick="setSubtreeChecked(this, '<%="div"+i%>')">
 							    <label for="<%=UrlUtil.htmlEncode(data.getTocHref(i))%>"><%=UrlUtil.htmlEncode(label)%></label>
@@ -539,16 +539,16 @@ function enableOK() {
 		                           continue;
 	                            }
 		                        String topicLabel = data.getTopicLabel(i, topic);
-		                        String topicChecked = (state == WorkingSetData.STATE_CHECKED) || 
-							                          (state == WorkingSetData.STATE_GRAYED && data.getTopicState(i,topic) == WorkingSetData.STATE_CHECKED) 
+		                        String topicChecked = (state == WorkingSetData.STATE_CHECKED) ||
+							                          (state == WorkingSetData.STATE_GRAYED && data.getTopicState(i,topic) == WorkingSetData.STATE_CHECKED)
 							                          ? "checked" : "";
                          %>
 						    <div class="topic" id='<%="id"+i+"_"+topic%>'>
-							    <input 	class="checkbox" 
-									    type="checkbox" 
-									    id='<%=UrlUtil.htmlEncode(data.getTocHref(i))+"_"+topic+"_"%>' 
-									    name='<%=UrlUtil.htmlEncode(data.getTocHref(i))+"_"+topic+"_"%>' 
-									    alt="<%=UrlUtil.htmlEncode(topicLabel)%>" <%=topicChecked%> 
+							    <input 	class="checkbox"
+									    type="checkbox"
+									    id='<%=UrlUtil.htmlEncode(data.getTocHref(i))+"_"+topic+"_"%>'
+									    name='<%=UrlUtil.htmlEncode(data.getTocHref(i))+"_"+topic+"_"%>'
+									    alt="<%=UrlUtil.htmlEncode(topicLabel)%>" <%=topicChecked%>
 									    onkeydown="keyDownHandler(<%=i%>, event.keyCode, this)"
 									    onclick="updateParentState(this, '<%="div"+i%>')">
 									    <label for="<%=UrlUtil.htmlEncode(data.getTocHref(i))+"_"+topic+"_"%>"><%=UrlUtil.htmlEncode(topicLabel)%></label>
@@ -569,7 +569,7 @@ function enableOK() {
                    <% 
                      String[] category = data.getCriterionIds();
                      for (int i=0; i < category.length; i++){
-                    	 String criterionId = category[i];
+                    	 String criterionId = category[i].replace("/","");
 	                     if(null == criterionId || 0 == criterionId.trim().length()){
 		                  // do not show
 		                     continue;
@@ -584,7 +584,7 @@ function enableOK() {
 					   <img id='<%="img_criterion"+i%>' alt="<%=ServletResources.getString("criterionClosed", request)%>" title="<%=ServletResources.getString("criterionClosed", request)%>" src="<%=prefs.getImagesDirectory()%>/plus.gif" onclick="collapseOrExpand('_criterion'+'<%=i%>')">
 					   <input 	class='<%=inputClassName%>' 
 							    type="checkbox" 
-							    id='<%=UrlUtil.htmlEncode(criterionId)%>' 
+							    id='<%=UrlUtil.htmlEncode(criterionId)%>'
 							    name='<%=UrlUtil.htmlEncode(criterionId)%>' 
 							    alt="<%=UrlUtil.htmlEncode(criterionDisplayName)%>" <%=categoryChecked%> 
 						  	    onkeydown="keyDownHandler('_criterion'+<%=i%>, event.keyCode, this)"
@@ -609,7 +609,7 @@ function enableOK() {
 						    <div class="criterionValue" id='<%="id_criterion"+i+"_"+j%>'>
 							    <input 	class="checkbox" 
 									    type="checkbox" 
-									    id='<%=UrlUtil.htmlEncode(criterionId)+"_"+j+"_"%>' 
+									    id='<%=UrlUtil.htmlEncode(criterionId)+"_"+j+"_"%>'
 									    name='<%=UrlUtil.htmlEncode(criterionId)+"_"+j+"_"%>' 
 									    alt="<%=UrlUtil.htmlEncode(criterionValueDisplayName)%>" <%=valueChecked%> 
 									    onkeydown="keyDownHandler('_criterion'+<%=i%>, event.keyCode, this)"
@@ -632,9 +632,9 @@ function enableOK() {
     </table>
 
 <div id="buttonBar" >
-	<table valign="bottom" align="<%=isRTL?"left":"right"%>">
+	<table  style="vertical-align: bottom; text-align: <%=isRTL?"left":"right"%>">
 		<tr id="buttonsTable" valign="bottom"><td valign="bottom" align="<%=isRTL?"left":"right"%>">
-  			<table cellspacing=10 cellpading=0 border=0 style="background:transparent;">
+  			<table cellspacing=10 border=0 style="background:transparent; padding: 0">
 				<tr>
 					<td>
 						<button type="submit" id="ok"><%=ServletResources.getString("OK", request)%></button>
