@@ -305,15 +305,18 @@ function setWindowStatus(buttonName){
 if (data.hasMenu()) {
 %>
 
+var menuElementId;
+
 function menu(button, param) {
 	var doc = parent.frames[1].document;
 	if (!doc.getElementById("menu")) {
+        menuElementId = button;
 		var menu = doc.createElement("div");
 		menu.id = "menu";
 		menu.srcButton = button;
 		menu.onmouseout = menuExit;
 		menu.onkeydown = menuKey;
-		
+
 		menu.style.padding = "2px 2px 2px 2px";
 		menu.style.position = "absolute";
 		menu.style.<%=isRTL ? "left" : "right"%> = "0px";
@@ -399,6 +402,9 @@ function closeMenu() {
 
 	var img = document.getElementById(menu.srcButton).firstChild;
 	img.title = img.alt;
+
+    // return focus to element which render menu
+    document.getElementById(menuElementId).focus();
 }
 
 function itemEnter(e) {
@@ -433,7 +439,7 @@ function menuExit(e) {
 <%
 if (data.getScript() != null) {
 %>
-<script language="JavaScript" src="<%=UrlUtil.htmlEncode(data.getScript())%>"></script>
+<script type="text/javascript" src="<%=UrlUtil.htmlEncode(data.getScript())%>"></script>
 <%
 }
 %>
