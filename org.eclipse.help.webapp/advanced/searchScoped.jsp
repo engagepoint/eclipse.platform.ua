@@ -80,7 +80,7 @@ A {
 }
 
 #searchLabel {
-	color:WindowText;
+	color:#000000;
 }
 
 #go {
@@ -95,7 +95,7 @@ A {
 <%
     }
 %>
-	color:WindowText;
+	color:#000000;
 	font-weight:bold;
 	border:1px solid ThreeDShadow;
 	margin-left:1px;
@@ -104,7 +104,7 @@ A {
 
 #scopeLabel {
 	text-decoration:underline; 
-	color: #1c0aff;
+	color: #000099;
 	cursor:pointer;
 	padding-left:15px;   /* This should be the same for both RTL and LTR. */
 }
@@ -113,7 +113,7 @@ A {
 	text-align:<%=isRTL?"left":"right"%>;
 	margin-<%=isRTL?"right":"left"%>:5px;
 	border:0px;
-	color:WindowText;
+	color:#000000;
 	text-decoration:none;
 }
 

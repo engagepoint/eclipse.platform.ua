@@ -36,7 +36,7 @@ BODY {
 
 #titleText {
 	font-weight:bold;
-	color:WindowText;
+	color:#000000;
 }
 
 a {
