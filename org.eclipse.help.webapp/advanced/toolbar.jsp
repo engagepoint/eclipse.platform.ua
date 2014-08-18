@@ -390,6 +390,27 @@ function menuKey(e, src) {
   	else if (key == 27) { // Esc
   		closeMenu();
   	}
+    else if(e.shiftKey && key == 9) {
+        //shift was down when tab was pressed
+        if (src.id != "menu" && src.previousSibling) {
+            src.previousSibling.focus();
+        }
+        else {
+            closeMenu();
+        }
+    }
+    else if (key == 9) { // Tab
+        if (src.id == "menu") {
+            src.firstChild.focus();
+        }
+        else if (src.nextSibling) {
+            src.nextSibling.focus();
+        }
+        else {
+            closeMenu();
+//            document.getElementById(menuElementId).focus();
+        }
+    }
   	else {
   		return true;
   	}
