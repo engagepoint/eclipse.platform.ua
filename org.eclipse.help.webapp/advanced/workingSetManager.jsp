@@ -42,7 +42,7 @@ HTML, BODY {
 BODY {
     font:<%=prefs.getViewFont()%>;
 	background-color: <%=prefs.getToolbarBackground()%>;
-	color:WindowText; 	
+	color:#000099;
 }
 
 TABLE {
@@ -75,8 +75,7 @@ FORM {
 }
 
 #workingSetContainer {
-	color:WindowText; 
-	border: 2px inset ThreeDHighlight;
+	color:WindowText; 	border: 2px inset ThreeDHighlight;
 	margin:0px 5px;
 	padding:5px;
 	overflow:auto;
