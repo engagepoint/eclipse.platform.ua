@@ -73,7 +73,7 @@ if (data.isMozilla()){
 </script>
 </head>
 
-<frameset id="indexFrameset" onload="onloadHandler()" rows="<%="0".equals(data.getBannerHeight())?"":data.getBannerHeight()+","%>24,*<%=data.getFooterRowText()%>" border="0">
+<frameset id="indexFrameset" onload="onloadHandler()" rows="<%="0".equals(data.getBannerHeight())?"":data.getBannerHeight()+","%>24,*<%=data.getFooterRowText()%>">
 <%
 	if(!("0".equals(data.getBannerHeight()))){
 %>
