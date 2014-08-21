@@ -173,7 +173,7 @@ public class WorkingSetData extends RequestData {
 	}
 
 	public String getTocHref(int i) {
-		return tocs[i].getHref().replace("/","SLASH");
+		return tocs[i].getHref().replace("/","SLASHFORW3VALIDATOR");
 	}
 
 	public int getTopicCount(int toc) {

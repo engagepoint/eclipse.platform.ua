@@ -232,11 +232,13 @@ function doSubmit()
         }
 	
 		var hrefs = getSelectedContentResources();
+        console.log(hrefs);
 		if (!hrefs || hrefs == "")
 			return false;
 
 		var criteria = getSelectedCriteriaResources();
 		var query = "operation="+'<%=UrlUtil.JavaScriptEncode(data.getOperation())%>'+"&workingSet="+encodeURIComponent(workingSet)+ hrefs+criteria+"&oldName="+encodeURIComponent(oldName);
+        console.log(query);
 		window.opener.location.replace("../workingSetState.jsp?"+query);
 	    window.opener.focus();
 		window.close();
@@ -252,10 +254,10 @@ function getSelectedContentResources() {
 		if (inputs[i].parentNode.id.indexOf("_criterion") > -1) continue;
 		if (inputs[i].checked == false) continue;
 		if (getGrayed(inputs[i])) continue;
-		if (isToc(inputs[i].name)) {
-			hrefs += "&hrefs="+encodeURIComponent(inputs[i].name);
+		if (isToc(inputs[i].name.replace(/SLASHFORW3VALIDATOR/g,"/"))) {
+			hrefs += "&hrefs="+encodeURIComponent(inputs[i].name.replace(/SLASHFORW3VALIDATOR/g,"/"));
 		} else if (!isParentTocSelected(inputs[i].name)) {
-			hrefs += "&hrefs="+encodeURIComponent(inputs[i].name);
+			hrefs += "&hrefs="+encodeURIComponent(inputs[i].name.replace(/SLASHFORW3VALIDATOR/g,"/"));
 		}
 	}
 	return hrefs;
@@ -279,10 +281,10 @@ function getSelectedCriteriaResources() {
 		if (inputs[i].parentNode.id.indexOf("_criterion") < 0) continue;
 		if (inputs[i].checked == false) continue;
 		if (getGrayed(inputs[i])) continue;
-		if (isCriterionCategory(inputs[i].name)) {
-			criteria += "&criteria=" + encodeURIComponent(inputs[i].name);
+		if (isCriterionCategory(inputs[i].name.replace(/SLASHFORW3VALIDATOR/g,"/"))) {
+			criteria += "&criteria=" + encodeURIComponent(inputs[i].name.replace(/SLASHFORW3VALIDATOR/g,"/"));
 		} else if(!isParentTocSelected(inputs[i].name)){
-            criteria += "&criteria=" + encodeURIComponent(inputs[i].name);
+            criteria += "&criteria=" + encodeURIComponent(inputs[i].name.replace(/SLASHFORW3VALIDATOR/g,"/"));
 		}
 	}
 	return criteria;
@@ -569,7 +571,7 @@ function enableOK() {
                    <% 
                      String[] category = data.getCriterionIds();
                      for (int i=0; i < category.length; i++){
-                    	 String criterionId = category[i].replace("/","");
+                    	 String criterionId = category[i];
 	                     if(null == criterionId || 0 == criterionId.trim().length()){
 		                  // do not show
 		                     continue;
