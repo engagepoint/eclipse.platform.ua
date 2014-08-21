@@ -286,6 +286,15 @@ function onloadHandler(e)
 
 <body dir="<%=direction%>" onload="onloadHandler()"  onunload="closeAdvanced()">
 <form  name="searchForm"   onsubmit="doSearch()">
+    <a style="position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;"
+    href="javascript: parent.parent.parent.frames['HelpFrame'].frames['ContentFrame'].frames['ContentViewFrame'].focus();"
+    target="ContentViewFrame">Skipp Navigation</a>
+
 	<div role="search">
 		<table id="searchTable" align="<%=isRTL?"right":"left"%>" valign="middle" cellspacing="0" cellpadding="0" border="0" role="presentation">
 			<tr nowrap  valign="middle">
