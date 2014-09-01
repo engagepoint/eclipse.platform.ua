@@ -111,11 +111,11 @@ public class ServletResources {
 			return property;
 		}
 		boolean isIE = UrlUtil.isIE(request);
-		String acceleratorPrefix = isIE ? "<u STYLE=\"ACCELERATOR:true\">" : ""; //$NON-NLS-1$ //$NON-NLS-2$
-		String acceleratorSuffix = isIE ? "</u>" : ""; //$NON-NLS-1$ //$NON-NLS-2$
+		//String acceleratorPrefix = isIE ? "<u STYLE=\"ACCELERATOR:true\">" : ""; //$NON-NLS-1$ //$NON-NLS-2$
+		//String acceleratorSuffix = isIE ? "</u>" : ""; //$NON-NLS-1$ //$NON-NLS-2$
 		return property.substring(0, amp)
-				+ acceleratorPrefix
-				+ property.charAt(amp+1) + acceleratorSuffix
+				//+ acceleratorPrefix
+				+ property.charAt(amp+1)// + acceleratorSuffix
 				+ property.substring(amp + 2, property.length());
 	}
 

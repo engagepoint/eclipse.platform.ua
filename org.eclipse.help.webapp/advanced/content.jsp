@@ -48,9 +48,7 @@ FRAMESET {
         try {
             var contentHREF = window.frames[1].window.location.href;
             if (contentHREF) {
-                console.log("contentURI = " + contentHREF);
                 var rootHREF = parent.parent.window.location.href;
-                console.log("rootURI = " + rootHREF);
                 var contentDomain = contentHREF.substring(0, contentHREF.indexOf('/'));
                 var rootDomain = rootHREF.substring(0, rootHREF.indexOf('/'));
                 if (contentDomain == rootDomain) {
