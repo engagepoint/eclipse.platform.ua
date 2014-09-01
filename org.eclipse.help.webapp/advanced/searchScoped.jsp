@@ -291,7 +291,8 @@ function onloadHandler(e)
     top:auto;
     width:1px;
     height:1px;
-    overflow:hidden;"
+    overflow:hidden;
+    color:#000000"
     href="javascript: parent.parent.parent.frames['HelpFrame'].frames['ContentFrame'].frames['ContentViewFrame'].focus();"
     target="ContentViewFrame">Skipp Navigation</a>
 
