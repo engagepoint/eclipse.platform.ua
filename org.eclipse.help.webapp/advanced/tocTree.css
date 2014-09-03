@@ -81,8 +81,8 @@ A:hover{
 }
 
 A.active{ 
-	color:HighlightText;
-	background:Highlight;
+	color:#EBEBFF;
+	background:#4D574D;
 	width:100%;
 }
 
