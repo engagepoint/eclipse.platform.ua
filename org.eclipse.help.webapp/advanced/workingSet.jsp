@@ -232,13 +232,11 @@ function doSubmit()
         }
 	
 		var hrefs = getSelectedContentResources();
-        console.log(hrefs);
 		if (!hrefs || hrefs == "")
 			return false;
 
 		var criteria = getSelectedCriteriaResources();
 		var query = "operation="+'<%=UrlUtil.JavaScriptEncode(data.getOperation())%>'+"&workingSet="+encodeURIComponent(workingSet)+ hrefs+criteria+"&oldName="+encodeURIComponent(oldName);
-        console.log(query);
 		window.opener.location.replace("../workingSetState.jsp?"+query);
 	    window.opener.focus();
 		window.close();
