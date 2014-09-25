@@ -21,6 +21,7 @@ BODY {
 	border:0px;	
 	cursor:default;
 	overflow:hidden;
+	background: #0075ac;
 }
 
 TABLE, TR, TD, P {
