@@ -91,7 +91,7 @@ A {
 <% 
     } else {
 %>
-    background:ThreeDShadow;
+    background: linear-gradient(rgb(105, 105, 104), rgb(53, 53, 53)) rgb(105, 105, 104);
 <%
     }
 %>

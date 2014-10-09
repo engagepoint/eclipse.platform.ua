@@ -85,6 +85,8 @@ INPUT {
 	color:Window;
 	font-weight:bold;
 	border:1px solid ThreeDShadow;
+    padding: 0px 25px;
+    height: 34px;
 }
 
 

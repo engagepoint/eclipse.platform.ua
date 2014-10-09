@@ -87,7 +87,9 @@ INPUT {
 <%
 	}
 %>
-
+#go:hover{
+    background: linear-gradient(rgb(105, 105, 104), rgb(53, 53, 53)) rgb(105, 105, 104);
+}
 #root {
 	margin-top:0px;
 	margin-<%=isRTL?"right":"left"%>:5px;	
