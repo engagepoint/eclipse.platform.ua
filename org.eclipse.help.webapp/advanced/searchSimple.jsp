@@ -56,7 +56,7 @@ FORM {
 INPUT {
 	font: <%=prefs.getToolbarFont()%>;
 	margin:0px;
-	padding:0px;
+    padding: 0 10px;
 }
 
 
@@ -84,9 +84,10 @@ INPUT {
 %>
 	color:Window;
 	font-weight:bold;
-	border:1px solid ThreeDShadow;
+	border:1px solid #333;
     padding: 0px 25px;
     height: 34px;
+    border-radius: 4px;
 }
 
 

@@ -43,8 +43,9 @@ TR {
 INPUT {
 	font:<%=prefs.getViewFont()%>;
 	margin:0;
-	padding:0;
+    padding: 0 10px;
 	border:1px solid ThreeDShadow;
+    background: #22eebb;
 }
 
 INPUT {
