@@ -36,8 +36,7 @@ HTML {
  
 BODY {
 	font: <%=prefs.getViewFont()%>;
-	background:<%=prefs.getToolbarBackground()%>;
-	background: 00bbff;
+	//background:<%=prefs.getToolbarBackground()%>;
 	border:1px solid ThreeDShadow;
 	padding:0px;
 	margin:0px;

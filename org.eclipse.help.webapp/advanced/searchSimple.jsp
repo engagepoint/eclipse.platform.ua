@@ -33,7 +33,7 @@ HTML {
  }
 
 BODY {
-	background:<%=prefs.getToolbarBackground()%>;
+	/*background:<%=prefs.getToolbarBackground()%>;*/
 	border:0px;
 	text:white;
 	height:100%;

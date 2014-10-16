@@ -34,7 +34,7 @@ HTML {
  }
 
 BODY {
-	background:<%=prefs.getToolbarBackground()%>;
+	/*background:<%=prefs.getToolbarBackground()%>;*/
 	border:0px;
 	height:100%;
 }
