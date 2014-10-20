@@ -56,7 +56,7 @@ FORM {
 INPUT {
 	font: <%=prefs.getToolbarFont()%>;
 	margin:0px;
-	padding:0px;
+	padding: 8px 12px;
 }
 
 
